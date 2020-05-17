@@ -5,6 +5,11 @@ How do you find new restaurants? More often than not, either someone recommends 
 Research shows that a proliferation of options does not imply a higher user satisfaction or an increase in business revenue. Creating a curated list of options for customers can lead to more business. Thus, the recommendation systems are highly important from a business perspective (see figure1). 
 I was motivated to understand how these systems work. Moreover, I greatly enjoy food and trying new restaurants, so I wanted to build a recommendation system for Toronto-based restaurants. I used machine learning techniques to build these systems. 
 
+The repository contains the following files:
+* Exploratory Data Analysis - Explains the process of culling out the data and data cleaning
+* Content-based model - Code for building the recommendation system from a content-based approach
+* Collaborative filtering model - Code for building the recommendation system from a collaborative filtering approach
+
 ## **The dataset**
 I used the dataset released by Yelp, which is an online platform having information about various businesses and the ratings and reviews given by users. I had three different tables containing information on users, restaurants and reviews in json format. I combined these tables and culled out information on Toronto-based restaurants. Ultimately, I ended up with more than 5,400 restaurants, and more than 300,000 reviews and ratings given by 80,000+ users. These tables had metadata on the restaurants and the users.
 There were around 314 categories of the restaurants, with nightlife, bar and cafes being the leading categories.
@@ -36,7 +41,4 @@ On the other hand, the collaborative filtering model while taking into account u
 ## **Summary and future directions**
 From the above it’s clear that both the models have their own merits. In the future, I want to capitalize on each of their plus points and build a more sophisticated and hybrid model. I would like to scale the model to include North America wide data and eventually build an application.
 I am also interested in studying if there are any discernible patterns between a restaurant’s average rating and its category as well as location. For instance, are Chinese restaurants in general doing particularly well in a particular locality, or vegan restaurants are not doing well in certain pockets. It would be interesting to study these patterns.
-The repository contains the following files:
-* Exploratory Data Analysis - Explains the process of culling out the data and data cleaning
-* Content-based model - Code for building the recommendation system from a content-based approach
-* Collaborative filtering model - Code for building the recommendation system from a collaborative filtering approach
+
