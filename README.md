@@ -1,8 +1,13 @@
 # **TORONTO RESTAURANT RECOMMENDER**
 
 ## **Introduction – motivation and goal**
-How do you find new restaurants? More often than not, either someone recommends a restaurant to us or we look for online recommendations. The recommendation systems have become such an important part of our lives, that many times we don’t even realize their existence. Most, if not all, online shopping portals, social networking sites, and news feeds rely on some or the other kind of recommendation engine to optimize user experience. 
-Research shows that a proliferation of options does not imply a higher user satisfaction or an increase in business revenue. Creating a curated list of options for customers can lead to more business. Thus, the recommendation systems are highly important from a business perspective (see figure1). 
+How do you find new restaurants? More often than not, either someone recommends a restaurant to us or we look for online recommendations. The recommendation systems have become such an important part of our lives, that many times we don’t even realize their existence. Most, if not all, online shopping portals, social networking sites, and news feeds rely on some or the other kind of a recommendation engine to optimize user experience. 
+Research shows that a proliferation of options does not imply a higher user satisfaction or an increase in business revenue. Creating a curated list of options for customers can lead to more business. Thus, the recommendation systems are highly important from a business perspective.
+
+ ![](Images/TheParadoxofChoice.png)
+
+[Image Source](https://medium.com/@przemekszustak/less-is-more-the-paradox-of-choice-behavioural-economics-in-ux-318849b2d70)
+
 I was motivated to understand how these systems work. Moreover, I greatly enjoy food and trying new restaurants, so I wanted to build a recommendation system for Toronto-based restaurants. I used machine learning techniques to build these systems. 
 
 The repository contains the following files:
@@ -12,12 +17,14 @@ The repository contains the following files:
 
 ## **The dataset**
 I used the dataset released by Yelp, which is an online platform having information about various businesses and the ratings and reviews given by users. I had three different tables containing information on users, restaurants and reviews in json format. I combined these tables and culled out information on Toronto-based restaurants. Ultimately, I ended up with more than 5,400 restaurants, and more than 300,000 reviews and ratings given by 80,000+ users. These tables had metadata on the restaurants and the users.
+
+![](Images/Cat.png)
+
 There were around 314 categories of the restaurants, with nightlife, bar and cafes being the leading categories.
 
 
 ## **Building the recommendation systems**
-I used two different approaches to build these models- one focuses on the similarities between the restaurants while the other exploits similarities between user preferences to generate recommendations.
-### **Content-based recommendation model**
+I used two different approaches to build these models- one focuses on the similarities between the restaurants while the other exploits similarities between user preferences to generate recommendations
 
 ![](Images/Content.png)
 As the name suggests, this particular model uses the similarities between the content of the items (in this case the restaurants) to provide recommendations. I have built a recommendation system where the user has to input the name of restaurant and the system will provide five recommendations similar to the input restaurant.
@@ -30,7 +37,8 @@ I used the Natural Language Toolkit (NLTK) to process the reviews. I used a cust
 For a term (a word or phrase), t, and a document, d, the term frequency 𝑡𝑓(𝑡,𝑑), measures how common the term is in the document. The inverse document frequency of a term 𝑡, 𝑖𝑑𝑓(𝑡), is the inverse of the number of documents a term 𝑡, appears in. The more common a term is across all documents the more 𝑖𝑑𝑓(𝑡) shrinks, while the more common a term is within one document the more 𝑡𝑓(𝑡,𝑑) grows. The term frequency inverse document frequency is simply the product of these two. 
 The number of reviews received by the restaurants varied quite a lot, with some restaurants having more than 2000 reviews, while some only having 3 reviews. To circumvent this problem, I used wherever possible 5 reviews and in case a restaurant had less than 5, then I used all the available reviews.
 After converting these into numerical features, I used the cosine similarity metrics to compute the similarity between the restaurants and ultimately make recommendations. If we think of the various features of each restaurant being a vector in a multi-dimensional space, this metric captures the orientation rather than the distance between the vectors. Mathematically, it measures the cosine of the angle between the two vectors. 
-### **Collaborative filtering model**
+
+![](Images/CollaborativeFiltering.png)
 This model exploits the similarities between the preferences of the users and the past ratings given by a user to generate recommendations. 
 For creating this recommendation system, I used a Scikit-learn library called Surprise. This library helps to build and analyze recommender systems that deal with rating data. 
 In case of recommendations, it is hard to evaluate accuracy because we don’t have the actual ratings against which we can compare our predictions. However, Surprise has built-in features that help to calculate the accuracy of various machine learning models, and thus helps to optimize the hyperparameters of a model and build a more efficient system. 
