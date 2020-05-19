@@ -18,6 +18,8 @@ There were around 314 categories of the restaurants, with nightlife, bar and caf
 ## **Building the recommendation systems**
 I used two different approaches to build these models- one focuses on the similarities between the restaurants while the other exploits similarities between user preferences to generate recommendations.
 ### **Content-based recommendation model**
+
+!(Images/Content.png)
 As the name suggests, this particular model uses the similarities between the content of the items (in this case the restaurants) to provide recommendations. I have built a recommendation system where the user has to input the name of restaurant and the system will provide five recommendations similar to the input restaurant.
 To build this model, I used the restaurant metadata- categorical information about the various cuisine served by a restaurant and other tags like nightlife, bar, etc. I also used the average rating and the number of reviews received by each restaurant.
 The dataset provided some information about other attributes about the restaurants, for instance, if a restaurant had valet parking, if they accepted credit card, and so on. However, these attributes had a lot of null values (sometimes close to 90%).  As, such I had to drop them.
